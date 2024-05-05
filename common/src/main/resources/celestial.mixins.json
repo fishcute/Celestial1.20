@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fishcute.celestial.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BiomeMixin",
+    "ClientLevelMixin",
+    "DimensionSpecialEffectsMixin",
+    "FogRendererMixin",
+    "LevelRendererMixin",
+    "MinecraftMixin",
+    "PoseMixin",
+    "PoseStackMixin",
+    "ReloadableResourceManagerMixin",
+    "api.BufferBuilderMixin",
+    "api.CameraMixin",
+    "api.PoseStackMixin",
+    "api.ShaderInstanceMixin",
+    "api.VertexBufferMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "api.ClientLevelMixin",
+    "api.ResourceLocationMixin"
+  ]
+}
