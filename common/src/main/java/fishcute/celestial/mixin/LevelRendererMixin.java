@@ -31,7 +31,7 @@ public class LevelRendererMixin {
         return null;
     }
     @Inject(method = "renderSky", at = @At("HEAD"), cancellable = true)
-    private void renderSky(PoseStack matrices, Matrix4f projectionMatrix, float tickDelta, Camera camera, boolean bl, Runnable runnable, CallbackInfo info) {
+    private void renderSky(Matrix4f matrices, Matrix4f projectionMatrix, float tickDelta, Camera camera, boolean bl, Runnable runnable, CallbackInfo info) {
         if (CelestialSky.doesDimensionHaveCustomSky()) {
             info.cancel();
             runnable.run();

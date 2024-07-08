@@ -228,7 +228,7 @@ public class VMinecraftInstance implements IMinecraftInstance {
     }
 
     public float getDarknessFogEffect(float fogStart) {
-        return Mth.lerp((minecraft.player.getEffect(MobEffects.DARKNESS).getFactorData().get()).getFactor(minecraft.player, getTickDelta()), fogStart, 15.0F);
+        return Mth.lerp((minecraft.player.getEffect(MobEffects.DARKNESS).getBlendFactor(minecraft.player, getTickDelta())), fogStart, 15.0F);
     }
     public boolean hasDarkness() {
         return minecraft.player.hasEffect(MobEffects.DARKNESS);
