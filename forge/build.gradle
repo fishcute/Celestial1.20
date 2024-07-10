@@ -2,11 +2,13 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
-apply plugin: "org.jetbrains.kotlin.jvm"
-
 architectury {
     platformSetupLoomIde()
     forge()
+}
+
+configurations.all {
+    resolutionStrategy.force("net.sf.jopt-simple:jopt-simple:5.0.4")
 }
 
 loom {
@@ -19,6 +21,8 @@ loom {
         mixinConfig "celestial.mixins.json"
     }
 }
+
+
 
 configurations {
     common
@@ -34,14 +38,11 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-
-    maven {
-        name = 'Kotlin for Forge'
-        url = 'https://thedarkcolour.github.io/KotlinForForge/'
-    }
 }
 
 dependencies {
+    mappings loom.officialMojangMappings()
+
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
 
     common(project(path: ":common", configuration: "namedElements")) {transitive false}
@@ -50,8 +51,10 @@ dependencies {
     shadowCommon project(":CelestialExpressions")
     common(shadowCommon(implementation(project(":CelestialMain"))))
 
-    modImplementation 'thedarkcolour:kotlinforforge:4.10.0'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
+
+
 
 processResources {
     inputs.property "version", project.version
@@ -96,16 +99,5 @@ publishing {
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
         // Add repositories to publish to here.
-    }
-}
-
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = "${rootProject.kotlin_jvm_target}"
-    }
-}
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = "${rootProject.kotlin_jvm_target}"
     }
 }

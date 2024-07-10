@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[50,)"
 license="MIT"
 issueTrackerURL="https://github.com/fishcute/Celestial/issues"
 [[mods]]
@@ -16,18 +16,12 @@ A Minecraft mod for Fabric and Forge that allows you to customize the sky.
 [[dependencies.celestial]]
    modId="forge"
    mandatory=true
-   versionRange="[45,)"
+   versionRange="[50,)"
    ordering="NONE"
    side="BOTH"
 [[dependencies.celestial]]
    modId="minecraft"
    mandatory=true
-   versionRange="[1.19.4,1.20)"
+   versionRange="[1.20.5,1.20.6]"
    ordering="NONE"
    side="BOTH"
-
-[[dependencies.celestial]]
-   modId="kotlinforforge"
-   versionRange="[4.10.0,)"
-   mandatory=true
-   ordering="BEFORE"

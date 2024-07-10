@@ -11,8 +11,6 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ClientLevel.class)
 public class ClientLevelMixin implements ILevelWrapper {
-    @Shadow @Final private ClientLevel.ClientLevelData clientLevelData;
-
     @Override
     public IMcVector celestial$getSkyColor(float tickDelta) {
         var level = (ClientLevel)(Object) this;
